@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="taskempModelStoreContainer" CdmEntityContainer="taskempEntities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="taskempModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Emp_FirstName" ColumnName="Emp_FirstName" />
+          <ScalarProperty Name="Emp_LastName" ColumnName="Emp_LastName" />
+          <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+          <ScalarProperty Name="Emp_Salary" ColumnName="Emp_Salary" />
+          <ScalarProperty Name="Emp_Designation" ColumnName="Emp_Designation" />
+          <ScalarProperty Name="Emp_DOB" ColumnName="Emp_DOB" />
+          <ScalarProperty Name="Emp_Address" ColumnName="Emp_Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

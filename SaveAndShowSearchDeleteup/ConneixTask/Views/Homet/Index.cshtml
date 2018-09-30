@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- add thids links for the error message-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/1.3.1/css/toastr.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/1.3.1/js/toastr.js"></script>
+
+    <!--add this link for the datatable-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.csss" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" integrity="sha256-4F7e4JsAJyLUdpP7Q8Sah866jCOhv72zU5E8lIRER4w=" crossorigin="anonymous"></script>
+
+    <style>
+        .LoadingDiv {
+            top: 0;
+            left: 0;
+            position: fixed;
+            opacity: 0.97;
+            z-index: 10000000;
+            background: Black;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+
+        #searchResult {
+            z-index: 99999;
+            width: 40%;
+            height: 60%;
+            background: #f0e0e0;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -9em; /*set to a negative number 1/2 of your height*/
+            margin-left: -15em; /*set to a negative number 1/2 of your width*/
+            text-align: center;
+            display:none;
+        }
+
+        #searchResultsLbl {
+            font-weight: bolder;
+            font-size: 17px;
+            margin-top: 4px;
+        }
+
+        #searchResultsClose{
+            position:absolute;
+            right:10px;
+            top:5px;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        #searchResultsClose:hover{
+            opacity:0.7;
+        }
+
+        #docmask{
+            width:100%;
+            height:100%;
+            z-index:99;
+            opacity:0.7;
+            position:fixed;
+            display:none;
+        }
+
+        .delete{
+            cursor:pointer;
+            text-decoration:underline;
+            color:blue;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            debugger;
+            windowResize();
+            $(window).resize(function () {
+                windowResize();
+            });
+            $('#toast-container').find('.toast-top-center').removeClass('.toast-top-center');
+            toastr.options = {
+                "closeButton": true,
+                'autoWidth': false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            $("#btnSave").click(function () {
+                var Emp_Id = $("#Emp_Id").val();
+                var Emp_FirstName = $("#Emp_FirstName").val();
+                var Emp_LastName = $("#Emp_LastName").val();
+                var Emp_Email = $("#Emp_Email").val();
+                var Emp_Salary = $("#Emp_Salary").val();
+                var Emp_Designation = $("#Emp_Designation").val();
+                var Emp_DOB = $("#Emp_DOB").val();
+                var Emp_Address = $("#Emp_Address").val();
+                var Gender = $("#Gender").val();
+                if (CheckRequiredFields()) {
+
+                    $('#dvLoader').show();
+                    $.ajax({
+                        url: '@Url.Action("SaveAndUpdateProduct", "Homet")',
+                        type: 'POST',
+                        data: JSON.stringify({
+                            "Emp_Id": parseInt(Emp_Id), "Emp_FirstName": Emp_FirstName, "Emp_LastName": Emp_LastName, "Emp_Email": Emp_Email,
+                            "Emp_Salary": Emp_Salary, "Emp_Designation": Emp_Designation, "Emp_DOB": Emp_DOB, "Emp_Address": Emp_Address, "Gender": Gender
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (result) {
+                            $('#dvLoader').hide();
+
+                            if (result.Status == "True") {
+                                toastr.success(result.Message);
+                                clear();
+                                display();
+                            }
+                            else {
+                                toastr.success(result.Message);
+                                clear();
+                                display();
+
+                            }
+                        }
+                    });
+
+                }
+
+            });
+
+            $("#btnCancel").click(function () {
+                clear();
+            });
+
+            $("#btnSearch").click(function () {
+                var searchKey = $("#searchkey").val().trim();
+
+                var prods = $("#tblProduct > tbody > tr");
+                $(prods).each(function (ind, row) {
+                    if ($($(row).children()[0]).html() === searchKey) {
+                        $("#docmask").css("display", "block");
+                        $("#searchResult").css("display", "block");
+
+                        $("#searchEmpID").html($($(row).children()[0]).html());
+                        $("#searchEmpFirstName").html($($(row).children()[1]).html());
+                        $("#searchEmpLastName").html($($(row).children()[2]).html());
+                        $("#searchEmpEmail").html($($(row).children()[3]).html());
+                        $("#searchEmpSalary").html($($(row).children()[4]).html());
+                        $("#searchEmpDesignation").html($($(row).children()[5]).html());
+                        $("#searchEmpDOB").html($($(row).children()[6]).html());
+                        $("#searchEmpAddress").html($($(row).children()[7]).html());
+                        $("#searchEmpGender").html($($(row).children()[8]).html());
+                    }
+                });
+            });
+
+            $("#searchResultsClose").click(function () {
+                $("#searchResult").css("display", "none");
+                $("#docmask").css("display", "none");
+            });
+
+        });
+        function clear() {
+            $("#Emp_FirstName").val("");
+            $("#Emp_LastName").val("");
+            $("#Emp_Email").val("");
+            $("#Emp_Salary").val("");
+            $("#Emp_Designation").val("");
+            $("#Emp_DOB").val("");
+            $("#Emp_Address").val("");
+            $("#Gender").val("");
+            $('#btnSave').val("Save Employee");
+            $("#Emp_Id").val(0);
+        }
+
+        function CheckRequiredFields() {
+            var isValid = true;
+            $('.required').each(function () {
+                if ($.trim($(this).val()) == '') {
+                    isValid = false;
+                    $(this).addClass('red_border');
+
+
+                }
+                else {
+                    $(this).removeClass('red_border');
+
+                }
+            });
+            return isValid;
+        }
+
+        function display() {
+            //$('#dvLoader').show();
+            var data = getData();
+            var tbody = "", thead = "<thead>"
+                    + "<tr>"
+                        + "<th>Employee ID</th>"
+                        + "<th>Employee First Name</th>"
+                        + "<th>Employee Last Name</th>"
+                        + "<th>Email</th>"
+                        + "<th>Salary</th>"
+                        + "<th>Designation</th>"
+                        + "<th>DOB</th>"
+                        + "<th>Address</th>"
+                        + "<th>Gender</th>"
+                        + "<th>Action</th>"
+                   + " </tr>"
+                + "</thead>";
+            if (data)
+                $(data.aaData).each(function (index, row) {
+                    
+                    tbody += "<tr><td>" + row[0] + "</td>"
+                    + "<td>" + row[1] + "</td>"
+                    + "<td>" + row[2] + "</td>"
+                    + "<td>" + row[3] + "</td>"
+                    + "<td>" + row[4] + "</td>"
+                    + "<td>" + row[5] + "</td>"
+                    + "<td>" + row[6] + "</td>"
+                    + "<td>" + row[7] + "</td>"              
+                    + "<td>" + row[8] + "</td>"
+                    + "<td class='delete' onclick='deleteData(" + row[0] + ")'>Delete</td></tr>"
+
+                });
+
+            tbody = "<tbody>" + tbody + "</tbody>";
+            $("#tblProduct").html(thead + tbody);
+        }
+
+        function getData() {
+            var data = null;
+            $.ajax({
+                url: '@Url.Action("GetEmployee", "Homet")',
+                type: 'GET',
+                async: false,
+                contentType: 'application/json; charset=utf-8;',
+                success: function (result) {
+                    data = result;
+                }
+            });
+
+            return data;
+        }
+
+        function windowResize() {
+            display();
+
+        };
+        $(window).resize(function () {
+            windowResize();
+        });
+
+
+        function deleteData(id) {
+            var PID = parseInt(id);
+            bootbox.confirm({
+                title: 'Remove Employee',
+                message: 'Are you sure want to delete this record?',
+                buttons: {
+                    'cancel': {
+                        label: 'No',
+                        className: 'btn-default pull-right'
+                    },
+                    'confirm': {
+                        label: 'Yes',
+                        className: 'btn-primary margin-right-5'
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        $('#dvLoader').show();
+                        $.ajax({
+                            url: '@Url.Action("DeleteEmployee", "Homet")',
+                            type: 'POST',
+                            data: JSON.stringify({
+                                "id": id
+                            }),
+                            contentType: 'application/json; charset=utf-8;',
+                            success: function (result) {
+                                windowResize();
+                                $('#dvLoader').hide();
+                                if (result.Status == "True") {
+                                    toastr.success(result.Message);
+                                    clear();
+                                } else {
+                                    toastr.success(result.Message);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        function EditData(row) {
+            debugger
+            var Emp_Id = $(row).closest('tr').find('.Emp_Id').html();
+            $("#Emp_Id").val(parseInt(Emp_Id));
+            var Emp_FirstName = $(row).closest('tr').find('.Emp_FirstName').html();
+            $('#Emp_FirstName').val(Emp_FirstName);
+            var Emp_LastName = $(row).closest('tr').find('.Emp_LastName').html();
+            $('#Emp_LastName').val(Emp_LastName);
+            var Emp_Email = $(row).closest('tr').find('.Emp_Email').html();
+            $('#Emp_Email').val(Emp_Email);
+            var Emp_Salary = $(row).closest('tr').find('.Emp_Salary').html();
+            $("#Emp_Salary").val(parseInt(Emp_Salary));
+            var Emp_Designation = $(row).closest('tr').find('.Emp_Designation').html();
+            $('#Emp_Designation').val(Emp_Designation);
+            var Emp_DOB = $(row).closest('tr').find('.Emp_DOB').html();
+            $('#Emp_DOB').val(Emp_DOB);
+            var Emp_Address = $(row).closest('tr').find('.Emp_Address').html();
+            $('#Emp_Address').val(Emp_Address);
+            var Gender = $(row).closest('tr').find('.Gender').html();
+            $('#Gender').val(Gender);
+            $('#btnSave').val("Update Employee");
+        }
+
+        function isNumberKey(evt) {
+            var charcode = (evt.which) ? evt.which : evt.keycode
+            if (charcode > 31 && (charcode < 48 || charcode > 58)
+                && evt.keyCode != 35 && evt.keyCode != 36 && evt.keyCode != 37
+                && evt.keyCode != 38 && evt.keyCode != 39 && evt.keyCode != 40
+                && evt.keyCode != 46) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    </script>
+    <style>
+        .red_border {
+            border: 1px solid #e46262;
+        }
+    </style>
+</head>
+<body>
+    <div id="docmask"></div>
+    <div>
+        <div class="col-md-12">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    <label>Employee First Name :</label>
+                    <input class="form-control required" type="text" id="Emp_FirstName" required />
+                </div>
+                <div class="col-md-12">
+                    <label>Employee Last Name :</label>
+                    <input class="form-control required" type="text" id="Emp_LastName" required />
+                </div>
+                <div class="col-md-12">
+                    <label>Email :</label>
+                    <input class="form-control required" type="text" id="Emp_Email" required />
+                </div>
+                <div class="col-md-12">
+                    <label>Salary :</label>
+                    <input class="form-control required" onkeypress="return isNumberKey(event)" type="text" id="Emp_Salary" required />
+                </div>
+                <div class="col-md-12">
+                    <label>Designation :</label>
+                    <input class="form-control required" type="text" id="Emp_Designation" required />
+                </div>
+                <div class="col-md-12">
+                    <label>DoB :</label>
+                    <input class="form-control required" type="date" id="Emp_DOB" required />
+                </div>
+                <div class="col-md-12">
+                    <label>Address :</label>
+                    <input class="form-control required" type="text" id="Emp_Address" required />
+                </div>
+                <div class="col-md-12">
+                    <label>Gender :</label>
+                    <input class="form-control required" type="text" id="Gender" required />
+                </div>
+                <div class="col-md-12">
+                    <br />
+                    <input id="btnSave" class="btn btn-success" type="button" value="Save Product" />
+                    <input id="btnCancel" class="btn btn-danger" type="button" value="Cancel" />
+
+                </div>
+
+            </div>
+            <div class="col-md-4"></div>
+
+
+
+        </div>
+        <input type="hidden" id="Emp_Id" value="0" />
+
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <input class="form-control" type="text" id="searchkey" />
+            </div>
+            <div class="col-md-2">
+                <input id="btnSearch" class="btn btn-success" type="button" value="Search" />
+            </div>
+        </div>
+
+        <br />
+
+        <div id="dvLoader" class="LoadingDiv" style="display: none;">
+
+
+            <table style="height: 100%; margin: auto;">
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <center>
+                            <img src="http://www.girlsgotit.org/images/ajax-loader.gif" alt="Loading" />
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-12">
+            <table id="tblProduct" class="table table-striped table-bordered" width="100%">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee First Name</th>
+                        <th>Employee Last Name</th>
+                        <th>Email</th>
+                        <th>Salary</th>
+                        <th>Designation</th>
+                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+
+    <div id="searchResult">
+        <div id="searchResultsClose">X</div>
+        <div id="searchResultsLbl">Employee Search Results</div>
+        <table class="table table-striped table-bordered" width="100%">
+            <tr><th>Employee ID: </th><td id="searchEmpID"></td></tr>
+            <tr><th>Employee First Name: </th><td id="searchEmpFirstName"></td></tr>
+            <tr><th>Employee Last Name: </th><td id="searchEmpLastName"></td></tr>
+            <tr><th>Email: </th><td id="searchEmpEmail"></td></tr>
+            <tr><th>Salary: </th><td id="searchEmpSalary"></td></tr>
+            <tr><th>Designation: </th><td id="searchEmpDesignation"></td></tr>
+            <tr><th>DOB: </th><td id="searchEmpDOB"></td></tr>
+            <tr><th>Address: </th><td id="searchEmpAddress"></td></tr>
+            <tr><th>Gender: </th><td id="searchEmpGender"></td></tr>
+        </table>
+    </div>
+</body>
+</html>

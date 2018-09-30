@@ -1,0 +1,70 @@
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\csc.exe
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\vbc.exe
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\VBCSCompiler.exe
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\ConneixTask.dll.config
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\ConneixTask.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\ConneixTask.pdb
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\EntityFramework.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Helpers.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Mvc.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Razor.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Webpages.Deployment.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Webpages.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Webpages.Razor.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\EntityFramework.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Razor.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Webpages.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Webpages.Deployment.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Webpages.Razor.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Helpers.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\bin\System.Web.Mvc.xml
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\obj\Debug\ConneixTask.dll
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\obj\Debug\ConneixTask.pdb
+C:\Users\v-chalr\Desktop\ConneixTask (2)\ConneixTask\ConneixTask\obj\Debug\ConneixTask.csprojResolveAssemblyReference.cache
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\csc.exe
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\vbc.exe
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\VBCSCompiler.exe
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\ConneixTask.dll.config
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\ConneixTask.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\ConneixTask.pdb
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\EntityFramework.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Helpers.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Mvc.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Razor.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Webpages.Deployment.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Webpages.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Webpages.Razor.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\EntityFramework.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Razor.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Webpages.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Webpages.Deployment.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Webpages.Razor.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Helpers.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\bin\System.Web.Mvc.xml
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\obj\Debug\ConneixTask.csprojResolveAssemblyReference.cache
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\obj\Debug\ConneixTask.dll
+C:\Users\THAIMART\Downloads\SaveAndShowSearchDelete\ConneixTask\obj\Debug\ConneixTask.pdb

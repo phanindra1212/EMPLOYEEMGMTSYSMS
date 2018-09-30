@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="taskempModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_Id" />
+    </Key>
+    <Property Name="Emp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Emp_LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Emp_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_Salary" Type="money" />
+    <Property Name="Emp_Designation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Emp_DOB" Type="date" />
+    <Property Name="Emp_Address" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="taskempModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
